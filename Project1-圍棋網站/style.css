@@ -1,0 +1,194 @@
+@font-face {
+  font-family: "naikai";
+  src: url(./font/naikaifont-master/webfont/NaikaiFont-Regular.woff);
+}
+
+/* 因為 Element 常有預設值，所以先這樣設定，後面比較好控制排版 */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: "naikai", DFkai-sb, sans-serif;
+}
+
+/* @media 當螢幕小於一定寬度時，把<header>變成垂直排列*/
+@media screen and (max-width: 635px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* 針對 Tag 去設定 */
+p {
+  padding: 0.5rem 0rem;
+}
+
+h3 {
+  padding-top: 0.5rem;
+  font-size: 1.75rem;
+}
+
+ul {
+  padding-left: 2rem;
+}
+
+article {
+  h3 {
+    color: lightseagreen;
+  }
+}
+
+section {
+  padding: 1rem 1.5rem;
+  padding-top: 0.25rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: bold;
+  font-size: 1.25rem;
+  background-color: darkcyan;
+  color: azure;
+}
+
+table,
+th,
+td {
+  padding: 0.25rem;
+  border: 1px solid;
+  border-color: black;
+}
+
+/* 針對 Class 做設定 */
+.active {
+  color: yellow;
+}
+
+/* <header>設定  */
+header {
+  padding: 2rem;
+  background-image: url("./images/background.png");
+  background-position: top center;
+  background-size: cover;
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* <nav>設定  */
+nav {
+  background-color: black;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+
+    li {
+      padding: 0.8rem 2.5rem;
+      padding-left: 0rem;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.25rem;
+        transition: all 0.5s ease;
+      }
+
+      a:hover {
+        color: yellow;
+      }
+    }
+  }
+}
+
+/* <首頁>設定 */
+main.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main.flex section.left {
+  flex: 1 1 250px;
+
+  img {
+    width: 100%;
+  }
+
+  table {
+    margin-top: 1rem;
+  }
+
+  table td {
+    padding: 0.25rem;
+  }
+}
+
+main.flex section.right {
+  flex: 4 1 500px;
+}
+
+/* <韓國棋院>設定 */
+article.block {
+  padding: 0.5rem;
+  border: 0.2rem;
+  margin: 1.5rem;
+  border-style: solid;
+  border-color: darkorange;
+
+  h4 {
+    color: darkcyan;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  p.self-intro {
+    color: darkcyan;
+  }
+}
+
+/* <日本棋院>設定 */
+main {
+  section.top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    img {
+      width: 30%;
+      height: fit-content; /* item 的高度不會超過 container */
+      flex: 1 1 300px;
+    }
+
+    article {
+      flex: 2 1 700px;
+      padding: 1.5rem;
+    }
+  }
+
+  section.buttom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 0rem;
+
+    article {
+      flex: 2 1 300px;
+    }
+
+    #piechart {
+      padding-top: 3rem;
+      flex: 1 1 50px;
+    }
+  }
+}

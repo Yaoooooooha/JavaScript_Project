@@ -1,0 +1,279 @@
+/*----------------
+Initial
+----------------*/
+// 因為 Element 常有預設值，所以先這樣設定，後面比較好控制排版
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: DFkai-sb, sans-serif;
+}
+
+/*----------------
+Variables
+----------------*/
+// size
+$large: 2rem;
+$big: 1.5rem;
+$normal: 1rem;
+$small: 0.5rem;
+$tiny: 0.25rem;
+
+// color
+$themeColor: rgba(152, 57, 255, 0.5);
+
+/*----------------
+@media
+----------------*/
+// @media 當螢幕小於一定寬度時，把<section.header>、<header>、<ul>變成垂直排列
+@media screen and (max-width: 800px) {
+  body section.header {
+    flex-direction: column;
+    align-items: center;
+    position: static;
+
+    header {
+      flex-direction: column;
+
+      /* 把圖片遍滿版 */
+      img {
+        width: 80%;
+        height: 80%;
+      }
+    }
+
+    nav {
+      align-self: flex-start;
+      flex-basis: auto;
+
+      ul {
+        flex-direction: column;
+
+        li {
+          padding: $tiny;
+
+          i {
+            // 統一 icon 寬度，避免後面的文字跑版
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*----------------
+Tags
+----------------*/
+p {
+  padding: $small 0;
+}
+
+h1 {
+  font-size: $large;
+}
+
+h2 {
+  padding-top: $small;
+  font-size: 2 * $big;
+}
+
+h3 {
+  color: white;
+  text-align: center;
+  font-size: $large;
+}
+
+section {
+  padding: $small $big;
+}
+
+/*----------------
+Classes
+----------------*/
+
+// header
+section.header {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  padding-right: 0;
+  align-items: center;
+  // stick header
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  // 設定 header 的下底樣式
+  box-shadow: 0 10px 6px -6px #777;
+
+  header {
+    flex: 1 1 360px;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  nav {
+    flex: 0 0 830px;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      justify-content: space-around;
+
+      li {
+        padding-bottom: $tiny;
+
+        a {
+          color: black;
+          text-decoration: none;
+          font-size: $big;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: $themeColor;
+            // 顯示<li>下面的底線
+            border-bottom: 3px solid $themeColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 設定網站的背景圖片
+div.background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: -5; // 避免蓋住其他 Element
+
+  img {
+    flex: 1 0 100px;
+    height: 100vh;
+  }
+}
+
+// 設定覆蓋住圖片的濾鏡，調整圖片不透明度
+div.filter {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%; // 要完全覆蓋住圖片
+  height: 100%; // 要完全覆蓋住圖片
+  position: absolute;
+  // 設定在跟<section.background-img>和<section.jsut-word>一樣的位置
+  top: 0;
+  left: 0;
+  // 避免蓋住文字
+  z-index: -1;
+}
+
+main {
+  section.background-img {
+    // 設定跑馬燈背景圖片
+    min-height: 70vh;
+    background-image: url("./images/日本櫻花.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: all 2s ease;
+    position: relative; // 為了成為<div.filter>的參考點
+    z-index: 0; // stacking context
+    // 把文字移到正中間
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.info-circle {
+    background-color: white;
+
+    h2 {
+      text-align: center;
+    }
+
+    div.circles {
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      div.circle {
+        flex: 0 0 250px;
+        // 把圖片跟文字置中
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 80%;
+          border-radius: 50%; // 用圓圈顯示
+          padding: $normal;
+          transition: all 0.2s ease;
+
+          // 縮小 padding，製造放大選取的效果
+          &:hover {
+            padding: 0.1rem;
+            border: 5px solid $themeColor;
+          }
+        }
+      }
+    }
+  }
+
+  section.just-word {
+    min-height: 70vh;
+    position: relative; // 為了成為<div.filter>的參考點
+    z-index: 0;
+    // 把文字移到正中間
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.map {
+    min-height: 90vh;
+    background-color: white;
+    text-align: center;
+
+    iframe {
+      width: 90vw;
+      height: 65vh;
+      padding: $normal;
+    }
+  }
+}
+
+footer {
+  min-height: 45vh;
+  position: relative; // 為了成為<div.filter>的參考點
+  z-index: 0;
+  // 把文字移到正中間
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 20vw;
+    min-width: 200px;
+    padding: $normal;
+  }
+
+  section.links {
+    // 調整社群網站連結的位置
+    img {
+      width: 5vw;
+      min-width: 80px;
+    }
+  }
+}

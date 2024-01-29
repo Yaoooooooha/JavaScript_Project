@@ -1,0 +1,61 @@
+/*----------------
+Initial
+----------------*/
+/* 因為 Element 常有預設值，所以先這樣設定，後面比較好控制排版 */
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*----------------
+Tags
+----------------*/
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*----------------
+Ids
+----------------*/
+#gameCanvas {
+  margin-bottom: 10vh;
+  border: 5px solid lightblue;
+  /* 調整 Canvas 至中擺放  */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#score,
+#bestScore {
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+/*----------------
+Classes
+----------------*/
+div.score {
+  margin-top: 8vh;
+  display: flex;
+}
+
+div.btn {
+  display: flex;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 10%;
+  border-style: none;
+  margin: 2rem 1rem;
+} /*# sourceMappingURL=style.css.map */
