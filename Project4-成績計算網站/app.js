@@ -277,7 +277,7 @@ function main() {
       let _grade = e.target.value;
       if (_grade[0] === "D" || _grade[0] === "F") {
         _select.style.backgroundColor = "red";
-      } else if (_grade === "C") {
+      } else if (_grade[0] === "C") {
         _select.style.backgroundColor = "orange";
       } else if (_grade === "") {
         _select.style.backgroundColor = "grey";
