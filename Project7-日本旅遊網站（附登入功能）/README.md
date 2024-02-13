@@ -27,6 +27,9 @@ npm install express mongoose ejs method-override # MVC Web Design
 npm install express-session dotenv # session
 npm install bcrypt connect-flash # local login / signup
 npm install passport passport-google-oauth20 passport-local # passport for google OAuth / lacal
+
+# launch
+node index.js
 ```
 
 ### Project Goals
