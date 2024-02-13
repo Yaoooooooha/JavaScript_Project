@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/headInfo") %>
+    <title>個人檔案</title>
+  </head>
+  <body>
+    <%- include ("partials/backgroundImg") %>
+    <section class="header">
+      <%- include ("partials/header") %> <%- include ("partials/nav") %>
+    </section>
+    <form action="/profile/edit-post?_method=DELETE" method="POST">
+      <section class="user-squre">
+        <div class="group">
+          <% if (user.thumbnail) { %>
+          <img src=" <%= user.thumbnail %>" alt="個人圖片" /> <% } else { %>
+          <!-- 沒有頭貼的就顯示預設頭貼 -->
+          <img
+            src="sources/images/userDefaultPic.png"
+            alt="個人圖片"
+            style="height: 96px"
+          />
+          <% } %>
+          <h2><%= user.name %> 的個人頁面</h2>
+        </div>
+        <div class="group">
+          <ul>
+            <li>帳號 (Email)： <%= user.email %></li>
+            <li>帳號創立時間：<%= user.date %></li>
+          </ul>
+        </div>
+
+        <% if (!editMode) { %>
+        <div class="group">
+          <a href="/profile/post"
+            ><i class="fa-solid fa-plus"></i> 新增旅遊日誌</a
+          >
+          <a href="/profile/edit-post"
+            ><i class="fa-solid fa-pen-to-square"></i> 編輯</a
+          >
+        </div>
+        <% } else { %>
+        <div class="group">
+          <button class="btn btn-primary trash-btn" onclick="deletePost()">
+            刪除
+          </button>
+          <button class="btn btn-primary">儲存</button>
+        </div>
+        <div class="group">
+          <a href="/profile"><i class="fa-solid fa-x"></i> 取消</a>
+        </div>
+        <% } %>
+      </section>
+
+      <% for (let i = 0; i < posts.length; i++) { %>
+      <section class="post-squre">
+        <% if (editMode) { %>
+        <div class="group" id="checkbox-group">
+          <label for="checkbox">選取：</label>
+          <input type="checkbox" id="<%= posts[i]._id %>" name="checkbox" />
+        </div>
+        <% } %>
+        <!-- bootstramp 的 post 設定 -->
+        <div class="group">
+          <h3 class="post-title"><%= posts[i].title %></h3>
+          <!-- 處理分行顯示，將 "\n" 換成 <br /> -->
+          <% let content = posts[i].content.replace(/\n/g, "<br />") %>
+          <p class="post-text"><%- content %></p>
+
+          <a class="btn btn-primary">撰寫時間：<%= posts[i].date %> </a>
+        </div>
+      </section>
+      <% } %>
+      <!-- 隱藏的資料 -->
+      <input type="hidden" name="additionalData" id="additionalDataField" />
+    </form>
+    <%- include ("partials/footer") %>
+  </body>
+  <script>
+    let delBtn = document.querySelector("button.trash-btn");
+    delBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+
+    // 監聽每個 checkbox 的 change 事件
+    let allDelCheckbox = document.querySelectorAll("input");
+    let checkboxArr = []; // 用來記錄 checkbox 狀態
+    allDelCheckbox.forEach((delCheckbox) => {
+      delCheckbox.addEventListener("change", (e) => {
+        // 如果該 checkbox 已經在 arr 中，就調整其 checkboxˋ狀態
+        for (let checkbox of checkboxArr) {
+          if (checkbox.id == e.target.id) {
+            checkbox.checked = e.target.checked;
+            return;
+          }
+        }
+        // 如果該 checkbox 還沒有在 arr 中，就紀錄 id 跟 checkboxˋ狀態
+        checkboxArr.push({
+          id: e.target.id,
+          checked: e.target.checked,
+        });
+      });
+    });
+
+    // 刪除選取的旅遊日誌
+    function deletePost() {
+      // 查看有被調整過的 checkbox
+      for (let _checkbox of checkboxArr) {
+        // 依照 id 選取對應的 checkbox
+        let _delcheckbox = document.getElementById(_checkbox.id);
+        // 刪除有被用戶選取的旅遊日誌
+        //（加入 _delcheckbox 判斷式，避免多次點擊刪除的情況）
+        if (_delcheckbox && _delcheckbox.checked) {
+          _delcheckbox.parentElement.parentElement.style.animation =
+            "scaleDown 0.5s ease backwards"; // 添加動畫
+          setTimeout(() => {
+            _delcheckbox.parentElement.parentElement.remove();
+          }, 450);
+        }
+      }
+      // 輸入隱藏資料
+      // 要先把 object 轉乘 JSON 格式
+      additionalDataField.value = JSON.stringify(checkboxArr);
+    }
+
+    // 隱藏資料欄位
+    let additionalDataField = document.getElementById("additionalDataField");
+    additionalDataField.value = checkboxArr;
+  </script>
+</html>

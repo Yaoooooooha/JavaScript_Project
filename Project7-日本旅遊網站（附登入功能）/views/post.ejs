@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/headInfo") %>
+    <title>製作旅遊日誌</title>
+  </head>
+  <body>
+    <%- include ("partials/backgroundImg") %>
+    <main>
+      <section class="header">
+        <%- include ("partials/header") %> <%- include ("partials/nav") %>
+      </section>
+      <section class="new-post-squre">
+        <h2>日誌</h2>
+        <form action="/profile/post" method="POST">
+          <div class="form-group">
+            <label for="postTitle">標題：</label>
+            <input name="title" type="text" id="postTitle" />
+          </div>
+          <div class="form-group">
+            <label for="postContent">內容：</label>
+            <textarea
+              class="form-control"
+              id="postContent"
+              name="content"
+            ></textarea>
+          </div>
+          <%- include ("partials/message") %>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">新增</button>
+            <a href="/profile"><i class="fa-solid fa-x"></i> 取消</a>
+          </div>
+        </form>
+      </section>
+    </main>
+    <%- include ("partials/footer") %>
+  </body>
+</html>

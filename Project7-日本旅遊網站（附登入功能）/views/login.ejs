@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/headInfo") %>
+    <title>會員登錄</title>
+  </head>
+  <body>
+    <%- include ("partials/backgroundImg") %>
+    <section class="header">
+      <%- include ("partials/header") %> <%- include ("partials/nav") %>
+    </section>
+    <main>
+      <section class="login-squre">
+        <h2>登入</h2>
+        <form action="/auth/login" method="POST">
+          <div class="form-group">
+            <label for="userEmail">帳號：</label>
+            <!-- name 必須設定成 "username" 才能夠被 Local Strategy 抓到 -->
+            <input type="email" id="userEmail" name="username" />
+          </div>
+          <div class="form-group">
+            <label for="userPassword">密碼：</label>
+            <!-- name 必須設定成 "password" 才能夠被 Local Strategy 抓到 -->
+            <input type="password" id="userPassword" name="password" />
+          </div>
+          <%- include ("partials/message") %>
+          <div class="form-group">
+            <a class="btn btn-primary btn-register" href="/auth/signup">
+              <i class="fa-solid fa-plus"></i> 註冊</a
+            >
+            <a class="btn btn-primary btn-forgetPassword">
+              <i class="fa-solid fa-unlock"></i> 忘記密碼</a
+            >
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-longin">登入</button>
+          </div>
+        </form>
+        <br />
+        <div>
+          <a class="btn btn-lg btn-google" href="/auth/google"
+            ><img src="/sources/Icons/google.png" />
+          </a>
+        </div>
+      </section>
+    </main>
+    <%- include ("partials/footer") %>
+  </body>
+</html>

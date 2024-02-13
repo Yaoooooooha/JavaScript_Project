@@ -1,0 +1,551 @@
+/*----------------
+Initial
+----------------*/
+// 因為 Element 常有預設值，所以先這樣設定，後面比較好控制排版
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: DFkai-sb, sans-serif;
+}
+
+/*----------------
+Variables
+----------------*/
+// size
+$large: 2rem;
+$big: 1.5rem;
+$normal: 1rem;
+$small: 0.5rem;
+$tiny: 0.25rem;
+
+// color
+$themeColor: rgba(152, 57, 255, 0.5);
+
+/*----------------
+@keyframes
+----------------*/
+// 消失動畫
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+/*----------------
+@media
+----------------*/
+// @media 當螢幕小於一定寬度時，把<section.header>、<header>、<ul>變成垂直排列
+@media screen and (max-width: 800px) {
+  body section.header {
+    flex-direction: column;
+    align-items: center;
+    position: static;
+
+    header {
+      flex-direction: column;
+
+      /* 把圖片遍滿版 */
+      img {
+        width: 80%;
+        height: 80%;
+      }
+    }
+
+    nav {
+      align-self: flex-start;
+      flex-basis: auto;
+
+      ul {
+        flex-direction: column;
+
+        li {
+          padding: $tiny;
+
+          i {
+            // 統一 icon 寬度，避免後面的文字跑版
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*----------------
+Tags
+----------------*/
+p {
+  padding: $small 0;
+}
+
+h1 {
+  font-size: $large;
+}
+
+h2 {
+  padding-top: $small;
+  font-size: 2 * $big;
+}
+
+h3 {
+  color: white;
+  text-align: center;
+  font-size: $large;
+}
+
+section {
+  padding: $small $big;
+}
+
+/*----------------
+Classes
+----------------*/
+
+// header
+section.header {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  padding-right: 0;
+  align-items: center;
+  // stick header
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  // 設定 header 的下底樣式
+  box-shadow: 0 10px 6px -6px #777;
+
+  header {
+    flex: 1 1 360px;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  nav {
+    flex: 0 0 830px;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      justify-content: space-around;
+
+      li {
+        padding-bottom: $tiny;
+
+        a {
+          color: black;
+          text-decoration: none;
+          font-size: $big;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: $themeColor;
+            // 顯示<li>下面的底線
+            border-bottom: 3px solid $themeColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 下拉式選單
+div.dropdown {
+  // 顯示下拉選單
+  &:hover {
+    div.dropdown-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  div.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    // 底部陰影
+    box-shadow: 0 10px 6px -6px #3e3e3e;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    a {
+      flex: 1 1 120px;
+      max-width: 150px;
+      padding-top: $large;
+      margin-bottom: $large;
+      text-align: center;
+    }
+  }
+}
+
+// 設定網站的背景圖片
+div.background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: -5; // 避免蓋住其他 Element
+
+  img {
+    flex: 1 0 100px;
+    height: 100vh;
+  }
+}
+
+// 設定覆蓋住圖片的濾鏡，調整圖片不透明度
+div.filter {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%; // 要完全覆蓋住圖片
+  height: 100%; // 要完全覆蓋住圖片
+  position: absolute;
+  // 設定在跟<section.background-img>和<section.jsut-word>一樣的位置
+  top: 0;
+  left: 0;
+  // 避免蓋住文字
+  z-index: -1;
+}
+
+// index.ejs
+main {
+  section.background-img {
+    // 設定跑馬燈背景圖片
+    min-height: 70vh;
+    background-image: url("../sources/images/日本櫻花.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: all 2s ease;
+    position: relative; // 為了成為<div.filter>的參考點
+    z-index: 0; // stacking context
+    // 把文字移到正中間
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.info-circle {
+    background-color: white;
+
+    h2 {
+      text-align: center;
+    }
+
+    div.circles {
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      div.circle {
+        flex: 0 0 250px;
+        // 把圖片跟文字置中
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 80%;
+          border-radius: 50%; // 用圓圈顯示
+          padding: $normal;
+          transition: all 0.2s ease;
+
+          // 縮小 padding，製造放大選取的效果
+          &:hover {
+            padding: 0.1rem;
+            border: 5px solid $themeColor;
+          }
+        }
+      }
+    }
+  }
+
+  section.just-word {
+    min-height: 70vh;
+    position: relative; // 為了成為<div.filter>的參考點
+    z-index: 0;
+    // 把文字移到正中間
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.map {
+    min-height: 90vh;
+    background-color: white;
+    text-align: center;
+
+    iframe {
+      width: 90vw;
+      height: 65vh;
+      padding: $normal;
+    }
+  }
+}
+
+footer {
+  min-height: 45vh;
+  position: relative; // 為了成為<div.filter>的參考點
+  z-index: 0;
+  // 把文字移到正中間
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 20vw;
+    min-width: 200px;
+    padding: $normal;
+  }
+
+  section.links {
+    // 調整社群網站連結的位置
+    img {
+      width: 5vw;
+      min-width: 80px;
+    }
+  }
+}
+
+// login.ejs
+// signup.ejs
+// post.eji
+section.login-squre,
+section.signup-squre,
+section.new-post-squre {
+  min-height: 80vh;
+  padding: $normal $large;
+  margin: 5vh 20vw;
+  border-radius: 30px;
+
+  background-color: rgba($color: #f0e5eb, $alpha: 0.8);
+  box-shadow: 1px 10px 6px -6px #777;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    padding-bottom: $normal;
+    overflow-wrap: normal;
+  }
+
+  div.form-group {
+    padding: $normal 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      font-size: $large;
+    }
+
+    input {
+      height: 2 * $big;
+      width: 30vw;
+      font-size: $big;
+    }
+
+    textarea {
+      width: 30vw;
+      max-width: 60vw;
+      height: 40vh;
+      font-size: $normal;
+    }
+
+    a {
+      color: black;
+      margin: $small $big;
+      text-decoration: none;
+      font-size: $big;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid #f0e5eb;
+
+      &:hover {
+        color: $themeColor;
+        // 顯示<li>下面的底線
+        border-bottom: 3px solid $themeColor;
+      }
+    }
+  }
+
+  button {
+    margin: $normal $normal;
+  }
+
+  a.btn-lg {
+    img {
+      height: 6vh;
+
+      // 縮小效果
+      &:hover {
+        transition: all 0.3s ease;
+        padding: 0.2rem;
+      }
+    }
+  }
+}
+
+// profile.ejs - profile
+section.user-squre {
+  min-height: 35vh;
+  padding: $normal $large;
+  margin: 5vh 20vw;
+  border-radius: 30px;
+
+  background-color: rgba($color: #f0e5eb, $alpha: 0.8);
+  box-shadow: 1px 10px 6px -6px #777;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  div.group {
+    padding: $normal 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+    }
+
+    h2 {
+      flex: 1 1 100px;
+      font-size: $large;
+      padding: $normal $big;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: $big;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid #f0e5eb;
+      margin: $small $big;
+
+      &:hover {
+        color: $themeColor;
+        // 顯示<li>下面的底線
+        border-bottom: 3px solid $themeColor;
+      }
+    }
+
+    button {
+      margin: $small $normal;
+    }
+  }
+}
+
+button {
+  width: 150px;
+  padding: $normal;
+  border: 2px;
+  border-style: groove;
+  border-radius: 20px;
+  font-size: $big;
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: $themeColor;
+    padding: 13px;
+    border: 5px solid $themeColor;
+  }
+}
+
+// profile.ejs - post
+section.post-squre {
+  min-height: 20vh;
+  padding: $normal $large;
+  margin: 5vh 10vw;
+  border-radius: 30px;
+
+  background-color: rgba($color: #f0e5eb, $alpha: 1);
+  box-shadow: 1px 10px 6px -6px #777;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  div.group {
+    padding: $normal;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      color: #777;
+    }
+
+    h3 {
+      max-width: 70vw;
+      overflow-wrap: break-word;
+
+      font-size: $big;
+      margin: $normal 0;
+      color: $themeColor;
+      border-bottom: 3px solid $themeColor;
+    }
+
+    p {
+      max-width: 70vw;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      max-width: 70vw;
+      overflow-wrap: break-word;
+      margin: $small $big;
+      color: black;
+      text-decoration: none;
+      font-size: small;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid #f0e5eb;
+
+      &:hover {
+        color: $themeColor;
+        // 顯示<li>下面的底線
+        border-bottom: 3px solid $themeColor;
+      }
+    }
+  }
+  // 讓 checkbox 的 labal 跟 input 擺在同一排
+  #checkbox-group {
+    display: inline;
+  }
+}
+
+// message
+div.alert {
+  display: flex;
+  justify-content: center;
+  strong {
+    color: rgb(255, 61, 61);
+    justify-content: center;
+  }
+}

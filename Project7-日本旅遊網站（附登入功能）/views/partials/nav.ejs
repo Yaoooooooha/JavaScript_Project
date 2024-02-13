@@ -1,0 +1,57 @@
+<nav>
+  <ul>
+    <li>
+      <a href="/">
+        <!-- icon -->
+        <i class="fa-solid fa-plane"></i>
+        日本旅遊
+      </a>
+    </li>
+    <!-- <li> -->
+    <!-- <a href="#"> -->
+    <!-- icon
+        <i class="fa-solid fa-book"></i>
+        預約行程
+      </a>
+    </li> -->
+    <li>
+      <a href="#">
+        <!-- icon -->
+        <i class="fa-solid fa-circle-info"></i>
+        聯絡我們
+      </a>
+    </li>
+    <% if (!login) { %>
+    <li>
+      <a href="/auth/login">
+        <!-- icon -->
+        <i class="fa-solid fa-right-to-bracket"> </i>
+        會員登入
+      </a>
+    </li>
+    <% } else {%>
+    <!-- 下拉式選單 -->
+    <li>
+      <div class="dropdown">
+        <a href="#">
+          <!-- icon -->
+          <i class="fa-solid fa-user"></i>
+          用戶
+        </a>
+        <div class="dropdown-content">
+          <a href="/profile">
+            <!-- icon -->
+            <i class="fa-solid fa-address-card"></i>
+            個人資料
+          </a>
+          <a href="/auth/logout">
+            <!-- icon -->
+            <i class="fa-solid fa-right-from-bracket"></i>
+            登出
+          </a>
+        </div>
+      </div>
+    </li>
+    <% } %>
+  </ul>
+</nav>

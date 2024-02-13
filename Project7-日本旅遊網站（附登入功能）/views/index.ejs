@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hants">
+  <head>
+    <%- include ("partials/headInfo") %>
+    <title>日本旅遊推薦</title>
+  </head>
+  <body>
+    <%- include ("partials/backgroundImg") %>
+    <section class="header">
+      <%- include ("partials/header") %> <%- include ("partials/nav") %>
+    </section>
+    <main>
+      <!-- 可以在用 css 在<section>中擺入圖片 -->
+      <section class="background-img">
+        <!-- 調整圖片不透明度的濾鏡 -->
+        <div class="filter"></div>
+        <!-- 圖片前的文字 -->
+        <h3>休閒空間，特殊假期。<br />安排一趟日本旅遊行程，放鬆身心。</h3>
+      </section>
+      <section class="info-circle">
+        <h2>遊玩主題</h2>
+        <div class="circles">
+          <div class="circle">
+            <img src="sources/images/北海道雪景.jpg" alt="北海道雪景" />
+            <p>北海道雪景，美不勝收</p>
+          </div>
+          <div class="circle">
+            <img src="sources/images/日本壽司.jpg" alt="日本壽司" />
+            <p>日本道地壽司與美食</p>
+          </div>
+          <div class="circle">
+            <img src="sources/images/富士山.jpg" alt="富士山" />
+            <p>富士山風景與溫泉</p>
+          </div>
+          <div class="circle">
+            <img src="sources/images/清水寺.jpg" alt="清水寺" />
+            <p>京都清水寺，千年古都</p>
+          </div>
+        </div>
+      </section>
+      <section class="just-word">
+        <div class="filter"></div>
+        <h3>今天就開始規劃行程，找到最適合的方案。</h3>
+      </section>
+      <section class="map">
+        <h2>日本地理位置</h2>
+        <p>
+          日本在地理上屬於東北亞，東鄰太平洋，西以日本海、朝鮮海峽、東海與歐亞大陸的西伯利亞、朝鮮半島、中國大陸鄰接，南以菲律賓海與台灣、馬里亞納群島鄰接，北以宗谷海峽、鄂霍次克海與庫頁島、千島群島鄰接。日本一年四季都是舒爽怡人的氣候，四季變化分明。
+          南部暖和，越往北部越寒冷。
+          特別是冬天吹西北季風，在日本海側會下很多雪。
+          另一方面、在太平洋側會持續是被稱為「冬晴」的乾燥晴天。
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5300755.760441594!2d137.10323600911116!3d35.18148688884259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34674e0fd77f192f%3A0xf54275d47c665244!2sJapan!5e0!3m2!1sen!2sus!4v1664253921541!5m2!1sen!2sus"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+    </main>
+    <%- include ("partials/footer") %>
+
+    <!-- 變換<section.background-img>的圖片 -->
+    <script>
+      setInterval(() => {
+        let topBackground = document.querySelector("section.background-img");
+        if (
+          topBackground.style.backgroundImage ==
+          'url("sources/images/日本櫻花.jpg")'
+        ) {
+          topBackground.style.backgroundImage =
+            'url("sources/images/京都古城.jpg")';
+        } else if (
+          topBackground.style.backgroundImage ==
+          'url("sources/images/京都古城.jpg")'
+        ) {
+          topBackground.style.backgroundImage =
+            'url("sources/images/大阪街頭.jpg")';
+        } else {
+          topBackground.style.backgroundImage =
+            'url("sources/images/日本櫻花.jpg")';
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
