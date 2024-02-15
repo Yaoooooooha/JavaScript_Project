@@ -1,0 +1,28 @@
+.nav-squre {
+  background-color: rgb(228, 255, 226);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  header {
+    h1 {
+      font-size: 2rem;
+      padding: 1rem;
+    }
+  }
+
+  nav {
+    background-color: rgb(228, 255, 226);
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 2rem;
+      li {
+        padding: 1rem 1rem;
+        a {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}

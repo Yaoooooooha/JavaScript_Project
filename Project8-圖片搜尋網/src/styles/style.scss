@@ -1,0 +1,51 @@
+$themeColor: rgb(132, 214, 126);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  overflow-wrap: break-word;
+  color: gray;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $themeColor;
+    // 顯示<li>下面的底線
+    border-bottom: 3px solid $themeColor;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.morePicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+button {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: 3px solid rgb(186, 252, 181);
+  background-color: rgb(186, 252, 181);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@import "./nav";
+@import "./search";
+@import "./footer";
+@import "./picture";
+@import "./about";

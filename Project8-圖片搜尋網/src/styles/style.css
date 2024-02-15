@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  overflow-wrap: break-word;
+  color: gray;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: rgb(132, 214, 126);
+  border-bottom: 3px solid rgb(132, 214, 126);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.morePicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+button {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: 3px solid rgb(186, 252, 181);
+  background-color: rgb(186, 252, 181);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-squre {
+  background-color: rgb(228, 255, 226);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nav-squre header h1 {
+  font-size: 2rem;
+  padding: 1rem;
+}
+.nav-squre nav {
+  background-color: rgb(228, 255, 226);
+}
+.nav-squre nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+.nav-squre nav ul li {
+  padding: 1rem 1rem;
+}
+.nav-squre nav ul li a {
+  font-size: 1.25rem;
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0rem;
+}
+.search input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: 3px solid rgb(186, 252, 181);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  background-color: rgb(228, 255, 226);
+  min-height: 10vh;
+}
+
+.pictures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.pictures .picture {
+  padding: 1rem;
+  width: 400px;
+}
+.pictures .picture .imageContainer {
+  overflow: hidden;
+  height: 40vh;
+}
+.pictures .picture .imageContainer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease;
+}
+.pictures .picture .imageContainer img:hover {
+  transform: scale(1.25);
+}
+
+.about-squre {
+  min-height: 75vh;
+  margin: 5vh 5vw;
+  padding: 5vh 5vw;
+  background-color: rgb(186, 252, 181);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-squre h2 {
+  padding: 1rem 0;
+  font-size: 2rem;
+}
+.about-squre p {
+  font-size: 1.5rem;
+}/*# sourceMappingURL=style.css.map */
