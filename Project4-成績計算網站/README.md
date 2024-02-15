@@ -8,6 +8,7 @@
   - [Prerequisites](#prerequisites)
   - [Project Goals](#project-goals)
   - [Skills Learned](#skills-learned)
+- [Demo Vedio](#demo-vedio)
 - [Refferences](#refferences)
 
 ## Getting Started
@@ -31,6 +32,11 @@
   - 更改網站顯示
   - 執行邏輯判斷
 - 排序演算法：Insert Sort & Merge Sort
+
+## Demo Vedio
+
+- [Youtube 影片](https://www.youtube.com/watch?v=wjRKp3EIOZM)
+- [Github 影片](https://github.com/Yaoooooooha/JavaScript_Project/blob/master/Project4-%E6%88%90%E7%B8%BE%E8%A8%88%E7%AE%97%E7%B6%B2%E7%AB%99/demo.mov)
 
 ## Refferences
 

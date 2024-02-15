@@ -8,6 +8,7 @@ Project8 是一個圖片搜尋網站，為使用者提供了一個極具豐富�
   - [Prerequisites](#prerequisites)
   - [Project Goals](#project-goals)
   - [Skills Learned](#skills-learned)
+- [Demo Vedio](#demo-vedio)
 - [Refferences](#refferences)
 
 ## Getting Started
@@ -41,6 +42,11 @@ npm start
 - 串接 Pexels API，獲取網站圖片
 - 運用 axios 實現 Http GET Request
 - 運用 react-router-dom 實現 React Routing
+
+## Demo Vedio
+
+- [Youtube 影片](https://www.youtube.com/watch?v=dZkhwwED8YQ)
+- [Github 影片](https://github.com/Yaoooooooha/JavaScript_Project/blob/master/Project8-%E5%9C%96%E7%89%87%E6%90%9C%E5%B0%8B%E7%B6%B2/demo.mp4)
 
 ## Refferences
 

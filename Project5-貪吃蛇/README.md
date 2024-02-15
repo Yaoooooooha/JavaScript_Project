@@ -8,6 +8,7 @@
   - [Prerequisites](#prerequisites)
   - [Project Goals](#project-goals)
   - [Skills Learned](#skills-learned)
+- [Demo Vedio](#demo-vedio)
 - [Refferences](#refferences)
 
 ## Getting Started
@@ -28,6 +29,11 @@
   - 設定大量遊戲邏輯
   - 反覆執行對應的函數
   - 設定、製作 Class 物件
+
+## Demo Vedio
+
+- [Youtube 影片](https://www.youtube.com/watch?v=WMEby_Tao0U)
+- [Github 影片](https://github.com/Yaoooooooha/JavaScript_Project/blob/master/Project5-%E8%B2%AA%E5%90%83%E8%9B%87/demo.mov)
 
 ## Refferences
 

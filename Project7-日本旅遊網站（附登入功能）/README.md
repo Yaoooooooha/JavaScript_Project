@@ -9,6 +9,7 @@
   - [Prerequisites](#prerequisites)
   - [Project Goals](#project-goals)
   - [Skills Learned](#skills-learned)
+- [Demo Vedio](#demo-vedio)
 - [Refferences](#refferences)
 
 ## Getting Started
@@ -58,6 +59,11 @@ node index.js
   - 依照 Schema 製作新的 Documents
   - 儲存 / 查詢 / 刪除 Documents
 - 在前端表單中傳送隱藏資料給後端處理
+
+## Demo Vedio
+
+- [Youtube 影片](https://www.youtube.com/watch?v=WxvXXezLoMk)
+- [Github 影片](https://github.com/Yaoooooooha/JavaScript_Project/blob/master/Project7-%E6%97%A5%E6%9C%AC%E6%97%85%E9%81%8A%E7%B6%B2%E7%AB%99%EF%BC%88%E9%99%84%E7%99%BB%E5%85%A5%E5%8A%9F%E8%83%BD%EF%BC%89/demo.mp4)
 
 ## Refferences
 
