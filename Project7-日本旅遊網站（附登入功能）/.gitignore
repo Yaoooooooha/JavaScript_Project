@@ -1,6 +1,8 @@
 # 示範資料夾
 /老師示範
 
+/node_module
+
 # misc
 .DS_Store
 .env
