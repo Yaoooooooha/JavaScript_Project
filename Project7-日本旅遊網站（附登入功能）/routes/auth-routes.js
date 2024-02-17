@@ -46,6 +46,7 @@ router.get(
 // 處理 authentication 結束後，跳轉的 redirect URL
 router.get(
   "/google/redirect",
+  // middleware，用來認證用戶是否通過 Google Authentication
   passport.authenticate("google", { failureRedirect: "/auth/login" }), // 用戶在授權時點取消的話會造成失敗，導回登入頁面
   (req, res) => {
     return res.redirect("/profile");
