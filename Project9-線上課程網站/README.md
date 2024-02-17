@@ -56,8 +56,8 @@ npm start
 
 ## Demo Vedio
 
-- [Youtube 影片]()
-- [Github 影片]()
+- [Youtube 影片](https://www.youtube.com/watch?v=59zvDJYCRzI)
+- [Github 影片](https://github.com/Yaoooooooha/JavaScript_Project/blob/master/Project9-%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B%E7%B6%B2%E7%AB%99/demo.mp4)
 
 ## Refferences
 
