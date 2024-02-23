@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "naikai";
+  src: url("../../public/font/naikaifont-master/webfont/NaikaiFont-Regular-Lite.woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "naikai", sans-serif;
+}
+
+@import url("./_nav.scss");
+@import url("./_homepage.scss");

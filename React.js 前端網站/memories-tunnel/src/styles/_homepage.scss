@@ -1,0 +1,120 @@
+section.tunnel-container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+
+  div.cover-page {
+    height: inherit;
+    width: inherit;
+    background-color: #fff9dd;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      text-align: center;
+      padding: 30vh 1rem;
+      font-size: 5rem;
+      color: #c3a0c3;
+    }
+
+    p {
+      padding: 1rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+
+  div.timeline-items {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    /* 一開始不顯示 */
+    transform: scale(0);
+    opacity: 0;
+    /* 一開始點不到 */
+    pointer-events: none;
+    cursor: auto;
+
+    div.container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      width: inherit;
+
+      div.card {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        img {
+          width: 30vw;
+          margin: 2rem;
+          border-radius: 10%;
+          border: 1px solid transparent;
+          transition: all 0.2s ease-in-out;
+          /* 浮空效果 */
+          box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3);
+
+          &:hover {
+            padding: 0.15rem;
+            border: 5px solid #b0e090;
+          }
+        }
+
+        div.card-content {
+          width: 0;
+          border-radius: 50px;
+          background-color: #fff9dd;
+          overflow: hidden; /* 卡片關起來之後看不到內容 */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          h2.card-title {
+            padding: 1rem 1rem;
+            font-size: 3rem;
+            color: #c3a0c3;
+          }
+          p {
+            text-align: center;
+            width: 50vw; /* 避免在關閉卡片時文字被擠壓 */
+            font-size: 2rem;
+            padding: 1rem 1rem;
+          }
+        }
+      }
+
+      h3.card-title {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 2rem;
+        background-color: #c3a0c3;
+        color: #fff9dd;
+      }
+    }
+  }
+
+  div.line {
+    /* 移到母元素中間 */
+    position: absolute;
+    z-index: -1;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* 三角形 */
+    width: 0;
+    height: 0;
+    /* 寬 */
+    border-left: 1.5vw solid transparent;
+    border-right: 1.5vw solid transparent;
+    /* 高 */
+    border-bottom: 47vh solid #c5c2fb;
+  }
+}
